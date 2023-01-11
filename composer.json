@@ -1,0 +1,17 @@
+{
+    "name": "project3/raul",
+    "description": "a simple web-shop app",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Project3\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Krivan Raul",
+            "email": "krivanrauladrian@gmail.com"
+        }
+    ],
+    "require": {}
+}
