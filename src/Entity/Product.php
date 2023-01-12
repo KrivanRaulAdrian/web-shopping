@@ -4,7 +4,7 @@ namespace Project3\Entity;
 
 class Product
 {
-    private ?int $id;
+    private ?string $id;
     private string $name;
     private string $description;
     private float $price;
@@ -22,7 +22,8 @@ class Product
         $this->price = $price;
         $this->quantity = $quantity;
     }
-    public function id(): ?int
+
+    public function id(): ?string
     {
         return $this->id;
     }

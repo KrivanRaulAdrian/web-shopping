@@ -15,12 +15,15 @@ class ProductRepositoryFromPdo implements ProductRepository
     {
         $stmt = $this->pdo->prepare(<<<SQL
             INSERT INTO products
-            (name, description, price, quantity)
+            (id, name, description, price, quantity)
             VALUES
-            (:name, :description, :price, :quantity)
+            (:id, :name, :description, :price, :quantity)
         SQL);
 
+        $id = uniqid();
+
         $stmt->execute([
+            ':id' => $id,
             ':name' => $product->name(),
             ':description' => $product->description(),
             ':price' => $product->price(),
@@ -63,7 +66,7 @@ class ProductRepositoryFromPdo implements ProductRepository
         $stmt = $this->pdo->prepare(<<<SQL
                 UPDATE products
                 SET name = :name, description = :description, price = :price, quantity = :quantity
-                WHERE id = :id
+                WHERE id = :id;
             SQL);
 
         $stmt->execute([
@@ -76,7 +79,7 @@ class ProductRepositoryFromPdo implements ProductRepository
     }
     public function deleteProduct($id): void
     {
-        $id = (int)filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
+        $id = filter_input(INPUT_GET, 'id');
 
         $stmt = $this->pdo->prepare(<<<SQL
             DELETE FROM products WHERE id = ?

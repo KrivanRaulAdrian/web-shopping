@@ -12,7 +12,7 @@ require_once __DIR__ . '/header.php';
 
 <form action="/index.php?action=updateCart" method="post">
     <label>Product ID:<br>
-        <input name="id" value="<?= $product->id() ?>" type="number" readonly />
+        <input name="id" value="<?= $product->id() ?>" readonly />
     </label>
     <br><br>
     <label>Product Name:<br>

@@ -17,6 +17,6 @@ class CreateOrderItemsAction
         $repository = OrderItemsRepositoryFactory::makeOrderItems();
         $repository->createOrderItems($orderItems);
 
-        header('Location: /index.php');
+        require_once __DIR__ . '/../../views/details.php';
     }
 }

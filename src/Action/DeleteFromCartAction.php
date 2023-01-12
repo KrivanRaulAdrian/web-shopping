@@ -9,7 +9,7 @@ class DeleteFromCartAction
 {
     public function handle()
     {
-        $id = (int)filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
+        $id = filter_input(INPUT_GET, 'id');
 
         $productArrayDelete = array();
 

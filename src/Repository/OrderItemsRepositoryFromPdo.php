@@ -14,20 +14,12 @@ class OrderItemsRepositoryFromPdo implements OrderItemsRepository
     {
         $stmt = $this->pdo->prepare(<<<SQL
             INSERT INTO order_items
-            (quantity, price)
+            (order_id, product_id, quantity, price)
             VALUES
-            (:quantity, :price)
+            (:order_id, :product_id, :quantity, :price)
         SQL);
 
-        require_once __DIR__ . '/../Repository/ProductRepositoryFromPdo.php';
-        require_once __DIR__ . '/../Repository/OrderRepositoryFromPdo.php';
-
-        $productId = $productIds;
-        $orderId = $orderIds;
-
         $stmt->execute([
-            $productId,
-            $orderId,
             ':quantity' => $orderItems->quantity(),
             ':price' => $orderItems->price()
         ]);

@@ -14,12 +14,15 @@ class OrderRepositoryFromPdo implements OrderRepository
     {
         $stmt = $this->pdo->prepare(<<<SQL
             INSERT INTO orders
-            (total, completed_at)
+            (id, total, completed_at)
             VALUES
-            (:total, :completed_at)
+            (:id, :total, :completed_at)
         SQL);
 
+        $id = uniqid();
+
         $stmt->execute([
+            ':id' => $id,
             ':total' => $order->total(),
             ':completed_at' => $order->completed_at(),
         ]);

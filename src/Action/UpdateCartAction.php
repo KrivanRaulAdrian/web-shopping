@@ -26,7 +26,7 @@ class UpdateCartAction
             require_once __DIR__ . '/../../views/cart.php';
         } else {
 
-            $id = (int)filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
+            $id = filter_input(INPUT_GET, 'id');
 
             $productRepository = ProductRepositoryFactory::makeProduct();
             $product = $productRepository->getById($id);

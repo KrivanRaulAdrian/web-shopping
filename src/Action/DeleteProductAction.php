@@ -9,7 +9,7 @@ class DeleteProductAction
 
     public function handle(): void
     {
-        $id = (int)filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
+        $id = filter_input(INPUT_GET, 'id');
 
         $productRepository = ProductRepositoryFactory::makeProduct();
         $product = $productRepository->getById($id);

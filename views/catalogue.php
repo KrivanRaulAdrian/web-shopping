@@ -45,7 +45,7 @@ $products = $repository->getAllProducts();
     <ul>
         <?php foreach ($products as $product) : ?>
             <li>
-                <img src="/images/<?= random_int(1, 31) ?>.jpeg" alt="Product Image"><br>
+                <img src="/images/<?= random_int(1, 32) ?>.jpeg" alt="Product Image"><br>
                 <small style="font-size: 10px">Product ID #<?= $product->id() ?></small>
                 <p>Product Name: <?= $product->name() ?></p>
                 <p>Product Description: <?= $product->description() ?></p>

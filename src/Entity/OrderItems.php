@@ -4,8 +4,8 @@ namespace Project3\Entity;
 
 class OrderItems
 {
-    private ?int $order_id;
-    private ?int $product_id;
+    private ?string $order_id;
+    private ?string $product_id;
     private int $quantity;
     private float $price;
 
@@ -19,11 +19,11 @@ class OrderItems
         $this->price = $price;
     }
 
-    public function order_id(): ?int
+    public function order_id(): ?string
     {
         return $this->order_id;
     }
-    public function product_id(): ?int
+    public function product_id(): ?string
     {
         return $this->product_id;
     }

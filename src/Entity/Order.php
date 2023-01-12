@@ -4,7 +4,7 @@ namespace Project3\Entity;
 
 class Order
 {
-    private ?int $id;
+    private ?string $id;
     private float $total;
     private string $completed_at;
 
@@ -16,7 +16,7 @@ class Order
         $this->total = $total;
         $this->completed_at = $completed_at;
     }
-    public function id(): ?int
+    public function id(): ?string
     {
         return $this->id;
     }
