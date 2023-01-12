@@ -7,7 +7,7 @@ define('PAGE_TITLE', 'Order Details');
 require_once __DIR__ . '/header.php';
 
 $repository = OrderItemsRepositoryFactory::makeOrderItems();
-$products = $repository->getAllOrderItems();
+$orderItems = $repository->getAllOrderItems();
 
 ?>
 
@@ -21,6 +21,14 @@ $products = $repository->getAllOrderItems();
         <th width="200">Product Quantity</th>
         <th width="200">Product Price</th>
     </tr>
+    <?php foreach ($orderItems as $item) : ?>
+        <tr>
+            <td align="center"><?= $item->order_id() ?></td>
+            <td align="center"><?= $item->product_id() ?></td>
+            <td align="center"><?= $item->quantity() ?></td>
+            <td align="center"><?= $item->price() ?></td>
+        </tr>
+    <?php endforeach; ?>
 </table>
 
 <?php require_once __DIR__ . '/footer.php' ?>

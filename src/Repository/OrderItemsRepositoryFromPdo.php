@@ -20,6 +20,8 @@ class OrderItemsRepositoryFromPdo implements OrderItemsRepository
         SQL);
 
         $stmt->execute([
+            ':order_id' => $orderItems->order_id(),
+            ':product_id' => $orderItems->product_id(),
             ':quantity' => $orderItems->quantity(),
             ':price' => $orderItems->price()
         ]);

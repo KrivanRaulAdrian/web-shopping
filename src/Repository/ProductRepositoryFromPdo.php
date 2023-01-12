@@ -20,10 +20,10 @@ class ProductRepositoryFromPdo implements ProductRepository
             (:id, :name, :description, :price, :quantity)
         SQL);
 
-        $id = uniqid();
+        $productId = uniqid('id', true);
 
         $stmt->execute([
-            ':id' => $id,
+            ':id' => $productId,
             ':name' => $product->name(),
             ':description' => $product->description(),
             ':price' => $product->price(),

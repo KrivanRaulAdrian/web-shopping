@@ -10,7 +10,7 @@ session_start();
 
 class CreateOrderAction
 {
-    public function handle()
+    public function handle(): void
     {
         $order = new Order(
             filter_input(INPUT_POST, 'total'),

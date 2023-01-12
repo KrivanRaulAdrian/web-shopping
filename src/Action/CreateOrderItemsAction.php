@@ -5,6 +5,9 @@ namespace Project3\Action;
 use Project3\Entity\OrderItems;
 use Project3\Factory\OrderItemsRepositoryFactory;
 
+session_name('cart_session');
+session_start();
+
 class CreateOrderItemsAction
 {
     public function handle(): void
@@ -16,6 +19,8 @@ class CreateOrderItemsAction
 
         $repository = OrderItemsRepositoryFactory::makeOrderItems();
         $repository->createOrderItems($orderItems);
+
+        session_destroy();
 
         require_once __DIR__ . '/../../views/details.php';
     }
