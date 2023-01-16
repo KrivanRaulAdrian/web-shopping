@@ -26,11 +26,11 @@ $orderItems = $repository->getByOrderId($orderId);
     </tr>
     <?php foreach ($orderItems as $item) : ?>
         <tr>
-            <td align="center"><?= $orderId ?></td>
-            <td align="center"><?= $item->product_id() ?></td>
-            <td align="center"><?= $item->name() ?></td>
-            <td align="center"><?= $item->quantity() ?></td>
-            <td align="center"><?= $item->price() ?></td>
+            <td align="center"><?= $item->order_id ?></td>
+            <td align="center"><?= $item->product_id ?></td>
+            <td align="center"><?= $item->name ?></td>
+            <td align="center"><?= $item->quantity ?></td>
+            <td align="center"><?= $item->price ?></td>
         </tr>
     <?php endforeach; ?>
 </table>
