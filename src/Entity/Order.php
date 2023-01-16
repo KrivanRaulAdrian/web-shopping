@@ -9,10 +9,11 @@ class Order
     private string $completed_at;
 
     public function __construct(
+        ?string $id = '',
         float $total = 0,
         string $completed_at = '',
     ) {
-        $this->id = null;
+        $this->id = $id;
         $this->total = $total;
         $this->completed_at = $completed_at;
     }

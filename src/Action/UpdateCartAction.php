@@ -18,6 +18,7 @@ class UpdateCartAction
             foreach ($productArray as $prod) {
                 if ($_POST['id'] === $prod->id) {
                     $prod->quantity = $_POST['quantity'];
+                    echo "<b><i>$prod->name was updated successfully!</i></b>";
                 }
                 $productArrayUpdate[] = $prod;
             }

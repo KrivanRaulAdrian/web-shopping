@@ -26,7 +26,7 @@ $orders = $repository->getAllOrders();
             <td align="center"><?= $order->id() ?></td>
             <td align="center"><?= "$" . $order->total() ?></td>
             <td align="center"><?= $order->completed_at() ?></td>
-            <td align="center"><?= "<a href='/index.php?action=displayOrderItems&id={$order->id()}'>Details</a>" ?></td>
+            <td align="center"><?= "<a href='/index.php?action=displayOrderItems&order_id={$order->id()}'>Details</a>" ?></td>
         </tr>
     <?php endforeach; ?>
 </table>

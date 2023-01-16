@@ -28,7 +28,7 @@ class AddToCartAction
         foreach ($productArray as $prod) {
             if ($_GET['id'] === $prod->id) {
                 $foundProduct = true;
-                echo "<b><i>$prod->name is already in the cart, added 1 to the existing quantity.</i></b>";
+                echo "<b><i>$prod->name is already in the cart, added 1 to the existing quantity!</i></b>";
                 $prod->quantity += 1;
             }
             $productArrayDuplicate[] = $prod;
@@ -36,7 +36,7 @@ class AddToCartAction
         if (!$foundProduct) {
             $product->name = $_GET['name'];
             $productArrayDuplicate[] = $product;
-            echo "<b><i>Product $product->name added to the cart.</i></b>";
+            echo "<b><i>Product $product->name was added to the cart successfully!</i></b>";
         }
         $_SESSION['cart_session'] = $productArrayDuplicate;
 

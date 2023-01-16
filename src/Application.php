@@ -3,6 +3,7 @@
 namespace Project3;
 
 use Project3\Action\AddToCartAction;
+use Project3\Action\AlertMessages;
 use Project3\Action\CheckoutDisplayAction;
 use Project3\Action\CreateOrderAction;
 use Project3\Action\CreateOrderItemsAction;
@@ -37,7 +38,6 @@ class Application
             'createOrder' => (new CreateOrderAction())->handle(),
             'displayOrder' => (new DisplayOrderAction())->handle(),
             'displayOrderItems' => (new DisplayOrderItemsAction())->handle(),
-            'createOrderItems' => (new CreateOrderItemsAction())->handle(),
         };
     }
 }

@@ -19,21 +19,32 @@ class OrderItemsRepositoryFromPdo implements OrderItemsRepository
             (:order_id, :product_id, :quantity, :price)
         SQL);
 
-        $stmt->execute([
-            ':order_id' => $orderItems->order_id(),
-            ':product_id' => $orderItems->product_id(),
-            ':quantity' => $orderItems->quantity(),
-            ':price' => $orderItems->price()
-        ]);
-    }
+        $orderId = $orderItems->order_id;
+        $productId = $orderItems->product_id;
+        $productQuantity = $orderItems->quantity;
+        $productPrice = $orderItems->price;
 
-    public function getAllOrderItems(): array
+        $productParams = [
+            ':order_id' => $orderId,
+            ':product_id' => $productId,
+            ':quantity' => $productQuantity,
+            ':price' => $productPrice,
+        ];
+
+        $stmt->execute($productParams);
+    }
+    public function getByOrderId($orderId): array|bool
     {
         $stmt = $this->pdo->prepare(<<<SQL
-            SELECT * FROM order_items
+        SELECT oi.order_id AS order_id, oi.product_id AS product_id, p.name AS name, oi.quantity AS quantity, oi.price AS price
+            FROM orders o 
+            JOIN order_items oi ON oi.order_id=o.id
+            JOIN products p ON oi.product_id=p.id
+        WHERE order_id = :order_id
         SQL);
 
         $stmt->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, OrderItems::class);
+        $stmt->bindParam(':order_id', $orderId);
         $stmt->execute();
 
         return $stmt->fetchAll();

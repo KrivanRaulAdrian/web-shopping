@@ -19,13 +19,15 @@ class OrderRepositoryFromPdo implements OrderRepository
             (:id, :total, :completed_at)
         SQL);
 
-        $orderId = uniqid('id', true);
+        $orderId = $order->id();
 
-        $stmt->execute([
+        $params = [
             ':id' => $orderId,
             ':total' => $order->total(),
             ':completed_at' => $order->completed_at(),
-        ]);
+        ];
+
+        $stmt->execute($params);
     }
     public function getAllOrders(): array
     {

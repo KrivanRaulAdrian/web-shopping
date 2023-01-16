@@ -30,7 +30,7 @@ require_once __DIR__ . '/header.php';
                     <td align="center"><?= "$" . $product->price ?></td>
                     <td align="center"><?= $product->quantity ?></td>
                     <td align="center"><?= "<a href='/index.php?action=updateCart&id={$product->id}&quantity={$product->quantity}'>Update</a>"; ?></td>
-                    <td align="center"><?= "<a href='/index.php?action=deleteFromCart&id={$product->id}'>Delete</a>"; ?></td>
+                    <td align="center"><?= "<a href='/index.php?action=deleteFromCart&id={$product->id}&name={$product->name}'>Delete</a>"; ?></td>
                 </tr>
             <?php endforeach; ?>
         </table>
