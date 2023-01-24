@@ -3,7 +3,6 @@
 namespace Project3;
 
 use Project3\Action\AddToCartAction;
-use Project3\Action\AlertMessages;
 use Project3\Action\CheckoutDisplayAction;
 use Project3\Action\CreateOrderAction;
 use Project3\Action\CreateOrderItemsAction;
