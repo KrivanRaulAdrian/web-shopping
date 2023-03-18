@@ -1,10 +1,10 @@
 # PHP-Web-Shopping-App
 
-## Description
-
 <p align="center">
   <img align="center" height="200" src=" public/elephpant.png">
 </p>
+
+## Description
 
 This PHP project is a web shop that utilizes Object-Oriented Programming (OOP) and PHP Data Objects (PDO) to manage products and orders.
 
