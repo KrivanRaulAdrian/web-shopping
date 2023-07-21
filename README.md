@@ -1,7 +1,7 @@
 # PHP-Web-Shopping-App
 
 <p align="center">
-  <img align="center" height="200" src=" public/elephpant.png">
+  <img align="center" height="200" src="public/elephpant.png">
 </p>
 
 ## Description
